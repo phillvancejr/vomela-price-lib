@@ -55,7 +55,7 @@ const Quote = (print_cost: number, plain_cost: number) => ({
     }
 });
 
-export { Quote as default, get_total };
+export { Quote , get_total };
 
 console.log(
     Quote(2,3)
