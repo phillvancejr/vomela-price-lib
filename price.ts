@@ -17,7 +17,10 @@ function price(sf: number, cost: number): Price {
     cost *= sf;
     return { sf, price: cost };
 }
-export default function get_total(cost: QuotePair, sf: QuotePair): Total {
+
+
+
+export function get_total(cost: QuotePair, sf: QuotePair): Total {
     const { print: print_cost, plain: plain_cost } = cost;
     const { print: print_sf, plain: plain_sf } = sf;
 
@@ -34,3 +37,30 @@ export default function get_total(cost: QuotePair, sf: QuotePair): Total {
     return total;
 }
 
+const Quote = (print_cost: number, plain_cost: number) => ({
+    cost: { print: print_cost, plain: plain_cost },
+    sf: { print: 0, plain: 0 },
+    _total: {},
+
+    print(sf: number) {
+        this.sf.print = sf;
+        return this;
+    },
+    plain(sf: number) {
+        this.sf.plain = sf;
+        return this;
+    },
+    total(){
+        return get_total(this.cost, { print: this.sf.print, plain: this.sf.plain });
+    }
+});
+
+export default Quote;
+
+console.log(
+    Quote(2,3)
+        .print(10)
+        .plain(10)
+        .total()
+)
+    
