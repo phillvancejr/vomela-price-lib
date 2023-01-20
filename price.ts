@@ -17,7 +17,7 @@ function price(sf: number, cost: number): Price {
     cost *= sf;
     return { sf, price: cost };
 }
-export function get_total(cost: QuotePair, sf: QuotePair): Total {
+export default function get_total(cost: QuotePair, sf: QuotePair): Total {
     const { print: print_cost, plain: plain_cost } = cost;
     const { print: print_sf, plain: plain_sf } = sf;
 
