@@ -20,7 +20,7 @@ function price(sf: number, cost: number): Price {
 
 
 
-export function get_total(cost: QuotePair, sf: QuotePair): Total {
+function get_total(cost: QuotePair, sf: QuotePair): Total {
     const { print: print_cost, plain: plain_cost } = cost;
     const { print: print_sf, plain: plain_sf } = sf;
 
@@ -55,7 +55,7 @@ const Quote = (print_cost: number, plain_cost: number) => ({
     }
 });
 
-export default Quote;
+export { Quote as default, get_total };
 
 console.log(
     Quote(2,3)
