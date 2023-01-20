@@ -57,10 +57,4 @@ const Quote = (print_cost: number, plain_cost: number) => ({
 
 export { Quote , get_total };
 
-console.log(
-    Quote(2,3)
-        .print(10)
-        .plain(10)
-        .total()
-)
-    
+ 
